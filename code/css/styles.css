@@ -14,7 +14,7 @@ ul {
 
 a {
     color:#000;
-    display: block;
+    display: inline-block;
     text-decoration: none;
 }
 
@@ -235,15 +235,15 @@ a {
 
 .header__btn {
     font-weight: 600;
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
 }
 
 .header__btn:hover {
-    color: #505050;
+    color: #5e5e5e;
 }
 
 .header__results {
@@ -262,15 +262,15 @@ a {
     margin: 1rem 0;
     font-size: 1.25rem;
     font-weight: 500;
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
 }
 
 .header__results-link:hover {
-    color: #505050;
+    color: #5e5e5e;
 }
 
 /* Icons */
