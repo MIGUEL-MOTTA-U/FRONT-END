@@ -468,3 +468,47 @@ a {
     -ms-transform: scaleX(1);
     -o-transform: scaleX(1);
 }
+
+/*Clothes*/
+.horizontal__section {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.image__container {
+    position: relative;
+    width: 340; 
+    margin: 0 10px;
+    overflow: hidden;
+    
+}
+
+.image__item {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+    
+}
+
+/*Efecto hoover*/
+.image__container:hover .image__item {
+    transform: scale(1.1);
+}
+
+.image__label {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    background-color: rgba(117, 116, 116, 0.6);
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 15%;
+}
+
+.image__label:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
