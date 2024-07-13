@@ -364,12 +364,14 @@ a {
 /* Information */
 .banner__info {
     width: 60%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .banner__content {
+    margin-top: 7rem;
     text-align: center;
     text-transform: uppercase;
     display: flex;
