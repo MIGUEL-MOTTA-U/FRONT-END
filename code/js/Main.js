@@ -111,12 +111,9 @@ $(() => {
 
     const hideSearching = () => {
         // Inicio la animacion para ocultar la busqueda
-        searching.addClass('header__searching--hidden');
+        searching.addClass('header__searching--hide');
 
         setTimeout(() => {
-            // Elimino la clase que oculta la busqueda
-            searching.removeClass('header__searching--hidden');
-
             // Regreso la barra de busqueda a su posicion y estilos originales
             rightSide.prepend(search);
             search.removeClass('header__search--searching');
@@ -135,8 +132,10 @@ $(() => {
 
             // Permito que el usuario haga scroll
             $('#body').removeClass('no-scroll');
-        }, 500);
 
+            // Elimino la clase que oculta la busqueda
+            searching.removeClass('header__searching--hide');
+        }, 480);
     };
 
     createSearching();
