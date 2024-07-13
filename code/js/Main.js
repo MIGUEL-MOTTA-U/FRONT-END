@@ -110,24 +110,33 @@ $(() => {
     };
 
     const hideSearching = () => {
-        // Regreso la barra de busqueda a su posicion y estilos originales
-        rightSide.prepend(search);
-        search.removeClass('header__search--searching');
-        searchInput.removeClass('header__input--searching');
+        // Inicio la animacion para ocultar la busqueda
+        searching.addClass('header__searching--hidden');
 
-        // Remuevo los elementos del DOM
-        searching.remove();
+        setTimeout(() => {
+            // Elimino la clase que oculta la busqueda
+            searching.removeClass('header__searching--hidden');
 
-        // Manejo los eventos de la barra de busqueda
-        searchInput.on('focus', showSearching);
-        searchInput.off('blur', hideSearching);
-        searchInput.val('');
+            // Regreso la barra de busqueda a su posicion y estilos originales
+            rightSide.prepend(search);
+            search.removeClass('header__search--searching');
+            searchInput.removeClass('header__input--searching');
 
-        // Elimino el evento de ocultar la busqueda cuando el usuario da un click por fuera de esta
-        $(document).off('click', clickOutsideHandler);
+            // Remuevo los elementos del DOM
+            searching.remove();
 
-        // Permito que el usuario haga scroll
-        $('#body').removeClass('no-scroll');
+            // Manejo los eventos de la barra de busqueda
+            searchInput.on('focus', showSearching);
+            searchInput.off('blur', hideSearching);
+            searchInput.val('');
+
+            // Elimino el evento de ocultar la busqueda cuando el usuario da un click por fuera de esta
+            $(document).off('click', clickOutsideHandler);
+
+            // Permito que el usuario haga scroll
+            $('#body').removeClass('no-scroll');
+        }, 500);
+
     };
 
     createSearching();
