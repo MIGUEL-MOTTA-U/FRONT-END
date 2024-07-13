@@ -104,6 +104,9 @@ $(() => {
 
         // Oculto la busqueda cuando el usuario da un click por fuera de esta
         $(document).on('click', clickOutsideHandler);
+
+        // Evito que el usuario haga scroll
+        $('#body').addClass('no-scroll');
     };
 
     const hideSearching = () => {
@@ -120,7 +123,11 @@ $(() => {
         searchInput.off('blur', hideSearching);
         searchInput.val('');
 
+        // Elimino el evento de ocultar la busqueda cuando el usuario da un click por fuera de esta
         $(document).off('click', clickOutsideHandler);
+
+        // Permito que el usuario haga scroll
+        $('#body').removeClass('no-scroll');
     };
 
     createSearching();
