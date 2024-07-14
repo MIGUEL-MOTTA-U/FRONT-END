@@ -890,3 +890,51 @@ a {
     font-size: 0.75rem;
     text-align: center;
 }
+
+/* * Queries */
+@media screen and (max-width: 1000px) {
+    /* --- Banner --- */
+    .banner {
+        height: auto;
+    }
+
+    .banner__img {
+        display: none;
+    }
+
+    .banner__info {
+        width: 100%;
+        margin-bottom: 5rem;
+    }
+
+    /* --- Categories --- */
+    .categories {
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-evenly;
+        row-gap: 2rem;
+    }
+
+    .categories__categorie {
+        width: 40vw; 
+        height: 50vw;
+    }
+
+    /* --- Suscribe --- */
+    .suscribe {
+        width: 90%;
+    }
+
+    /* --- Links --- */
+    .links {
+        grid-template-columns: repeat(3, auto);
+    }
+
+    .links__sc-n {
+        margin-top: 2rem;
+        grid-column: span 3;
+    }
+
+    .links__sc-n-list {
+        display: flex;
+    }
+}
