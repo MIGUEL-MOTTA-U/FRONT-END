@@ -288,6 +288,7 @@ a {
 
 .header__btn {
     font-weight: 600;
+    cursor: pointer;
     transition: all .2s ease;
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
@@ -450,11 +451,11 @@ a {
     z-index: -1;
     transform: scaleX(0);
     transform-origin: left;
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
+    transition: all .4s ease-out;
+    -webkit-transition: all .4s ease-out;
+    -moz-transition: all .4s ease-out;
+    -ms-transition: all .4s ease-out;
+    -o-transition: all .4s ease-out;
     -webkit-transform: scaleX(0);
     -moz-transform: scaleX(0);
     -ms-transform: scaleX(0);
@@ -473,14 +474,14 @@ a {
 .categories {
     margin: 3rem auto;
     width: 90%;
-    max-width: 83rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
 }
 
 .categories__categorie {
-    height: 30rem;
+    width: 20vw; 
+    height: 30vw;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;

@@ -48,7 +48,6 @@ $(() => {
             'class': 'header__img'
         });
         searchBtn = $('<a></a>').attr({
-            'href': '#',
             'class': 'header__btn',
             'id': 'search-btn'
         }).text('Cancelar');
