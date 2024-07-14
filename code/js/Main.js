@@ -43,7 +43,7 @@ $(() => {
     const createSearchingContainer = () => {
         searchContainer = $('<div></div>').attr('class', 'header__search-container');
         searchLogo = $('<img>').attr({
-            'src': '../assets/logo.jpg',
+            'src': '../assets/logo.png',
             'alt': 'Logo',
             'class': 'header__img'
         });
