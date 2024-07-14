@@ -477,6 +477,7 @@ a {
 /* * --- Categories --- */
 .categories {
     margin: 3rem auto;
+    margin-bottom: 7rem;
     width: 90%;
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -619,9 +620,50 @@ a {
     transform: rotateX(0deg);
 }
 
+/* --- Features --- */
+.features {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+}
+
+.features__feature {
+    width: 100%;
+    text-align: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.features__feature:not(:last-child):after {
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    right: 0;
+}
+
+.features__text {
+    font-size: 1.2rem;
+}
+
+.features__text--bold {
+    font-weight: 700;
+}
+
+.features__icon {
+    font-size: 5rem;
+}
+
 /* * --- Footer --- */
 .footer {
-    margin-top: 25rem;
+    margin-top: 22rem;
     z-index: 1;
 }
 
