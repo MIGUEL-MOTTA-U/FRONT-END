@@ -757,7 +757,7 @@ a {
 .suscribe__input:not(:placeholder-shown) + .suscribe__span {
     padding: 0 0.2rem;
     background-color: #fff;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     top: 0;
 }
 
@@ -871,7 +871,7 @@ a {
 
 /* --- Payments --- */
 .payments {
-    margin: 2rem 0;
+    margin: 1rem 0;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
