@@ -998,3 +998,17 @@ a {
         grid-column: span 1;
     }
 }
+
+@media screen and (max-width: 500px) {
+    /* Links */
+    .links {
+        grid-template-columns: repeat(1, auto);
+        row-gap: 3rem;
+    }
+
+    .links__content,
+    .links__sc-n {
+        text-align: center;
+        justify-self: center;
+    }
+}
