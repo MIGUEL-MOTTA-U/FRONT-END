@@ -999,6 +999,12 @@ a {
     }
 }
 
+@media screen and (max-width: 550px) {
+    html {
+        font-size: 12px;
+    }
+}
+
 @media screen and (max-width: 500px) {
     /* Links */
     .links {
