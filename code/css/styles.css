@@ -821,6 +821,7 @@ a {
 .features {
     width: 90%;
     margin: 0 auto;
+    margin-top: 8rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
