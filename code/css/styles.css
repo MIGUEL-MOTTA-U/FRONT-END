@@ -622,6 +622,197 @@ a {
     transform: rotateX(0deg);
 }
 
+/* --- Collections --- */
+
+.collections {
+    margin: 3rem auto;
+    margin-bottom: 7rem;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.collection__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    max-width: 60vh;
+}
+
+.collection__box figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.collection__box img {
+    width: 100%;
+    height: 100%;
+    transition: all 500ms ease-out;
+    object-fit: cover;
+    object-position: center;
+}
+
+.collection__box figure .capa {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(66, 44, 3, 0.466);
+    opacity: 0;
+    transition: all 500ms ease-out;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20%;
+}
+
+/* Hover Effect */
+.collection__box figure:hover > .capa {
+    opacity: 1;
+    visibility: visible;
+}
+
+.collection__box figure:hover > img {
+    transform: scale(1.1);
+}
+/*Hover imgg*/
+.collection__box figure .capa a {
+    color: white;
+    font-weight: 600;
+    font-size: 400%;
+    transition: all 500ms ease-out;
+    text-transform: uppercase;
+    transform: translateY(100%); 
+    position: relative;
+}
+/*Hover texto*/
+.collection__box figure:hover > .capa a {
+    transform: translateY(0); 
+}
+
+/* Delineado de texto */
+.collection__box figure .capa a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.collection__box figure .capa a:hover::after {
+    transform: scaleX(1);
+}
+
+/* --- Products --- */
+.products-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.products {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.25rem;
+    scrollbar-width: none;  
+    -ms-overflow-style: none; 
+}
+
+/* Para eliminar la scroll bar */
+.products::-webkit-scrollbar {
+    display: none; 
+}
+
+.product_item {
+    flex: 0 0 auto;
+    width: 18.75rem;
+    margin-right: 1.25rem;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product_item:hover {
+    transform: scale(1.05);
+}
+
+.img-container {
+    width: 100%;
+    height: 18.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.product_item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product_item a {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 0.625rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.product_item p {
+    color: #1e90ff;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0.3125rem;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.625rem 0.9375rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.left-arrow {
+    left: 0.625rem;
+}
+
+.right-arrow {
+    right: 0.625rem;
+}
+
+
 /* --- Features --- */
 .features {
     width: 90%;
