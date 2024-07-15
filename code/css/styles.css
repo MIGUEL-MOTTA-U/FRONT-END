@@ -167,6 +167,10 @@ a {
     -o-transition: all .2s ease;
 }
 
+.header__sublist {
+    margin: 0 2rem;
+}
+
 .header__item:hover .header__submenu {
     transform: scaleY(1);
     -webkit-transform: scaleY(1);
@@ -900,6 +904,27 @@ a {
 
 /* * Queries */
 @media screen and (max-width: 1000px) {
+    /* Header */
+    .header__input {
+        display: none;
+    }
+
+    .header__rigth-side {
+        gap: 0.5rem;
+    }
+
+    .header__icon-seacrh {
+        font-size: 1rem;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+}
+
     /* --- Banner --- */
     .banner {
         height: auto;
