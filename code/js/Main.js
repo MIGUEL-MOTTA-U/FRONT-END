@@ -140,7 +140,10 @@ $(() => {
     createSearching();
     searchInput.on('focus', showSearching);
 
-    // Catalogo Horizontal
+    // * Responsive nav
+    
+
+    //  * Catalogo Horizontal
     const catalogo = document.querySelector('.products');
     const leftArrow = document.querySelector('.left-arrow');
     const rightArrow = document.querySelector('.right-arrow');
