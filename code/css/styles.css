@@ -696,7 +696,7 @@ a {
 .collection__box figure .capa a {
     color: white;
     font-weight: 600;
-    font-size: 400%;
+    font-size: 2.8rem;
     transition: all 500ms ease-out;
     text-transform: uppercase;
     transform: translateY(100%); 
@@ -725,6 +725,31 @@ a {
 }
 
 /* --- Products --- */
+.products__header {
+    position: relative;
+    text-align: center;
+    margin: 1.25rem 0;
+    text-transform: uppercase;
+    }
+
+    .products__title {
+    display: inline-block;
+    background-color: white;
+    padding: 0 1.25rem; /* 20px / 16px = 1.25rem */
+    position: relative;
+    z-index: 1;
+    }
+
+    .products__header::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-top: 0.0625rem solid black; /* 1px / 16px = 0.0625rem */
+    z-index: 0;
+    }
+
 .products-container {
     position: relative;
     max-width: 100%;
@@ -779,15 +804,50 @@ a {
     object-fit: cover;
 }
 
+/* Hover articulo */
 .product_item a {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: linear-gradient(
+        to right,
+        #1e8fffb0,
+        #1e90ff 50%,
+        #282a2bec 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 0.625rem;
     font-size: 1.1rem;
     text-decoration: none;
-    color: #333;
     text-transform: uppercase;
 }
 
+.product_item a::before {
+    content: '';
+    background: #1e90ff;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.product_item a:hover {
+    background-position: 0;
+}
+
+.product_item a:hover::before {
+    width: 100%;
+}
+
+/*Precio*/
 .product_item p {
     color: #1e90ff;
     font-size: 1rem;
