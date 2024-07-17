@@ -117,6 +117,8 @@ $(() => {
             rightSide.prepend(search);
             search.removeClass('header__search--searching');
             searchInput.removeClass('header__input--searching');
+            $('#search-input').removeClass('header__input--active');
+            $('#searchIcon').removeClass('header__icon-seacrh--active');
 
             // Remuevo los elementos del DOM
             searching.remove();
@@ -241,6 +243,11 @@ $(() => {
             submenuReturn.on('click', function() {
                 $(this).closest('.header__submenu').removeClass('header__submenu--visible');
             });
+            closeIcon.on('click', () => {
+                const parent = closeIcon.parent().parent();
+                closeMenu();
+                parent.removeClass('header__submenu--visible');
+            });
 
             // Agrego los elementos al dom
             submenuReturn.append(returnIcon).append(submenutext);
@@ -292,6 +299,16 @@ $(() => {
     };
 
     const responsiveMenu = () => {
+        if (window.innerWidth <= 1000) {
+            $('#searchIcon').on('click', function() {
+                showSearching();
+                $('#search-input').addClass('header__input--active');
+                $(this).addClass('header__icon-seacrh--active');
+            });
+        } else {
+            $('#searchIcon').off('click');
+        }
+
         if (window.innerWidth <= 800 && !elementsCreated) {     
             createMenuIcon();
             createlinkContainer('.header__item');
@@ -308,7 +325,6 @@ $(() => {
             deleteSubmenuTop();
             deleteMenuIcon();
             deleteLinkContainer();
-            // deleteLinkContainer('.header__sublist');
             deleteHeaderSession();
             deletePrincipalContent();
 

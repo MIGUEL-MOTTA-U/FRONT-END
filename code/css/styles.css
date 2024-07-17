@@ -627,8 +627,7 @@ a {
     transform: rotateX(0deg);
 }
 
-/* --- Collections --- */
-
+/* * --- Collections --- */
 .collections {
     margin: 3rem auto;
     margin-bottom: 7rem;
@@ -731,17 +730,17 @@ a {
     text-align: center;
     margin: 1.25rem 0;
     text-transform: uppercase;
-    }
+}
 
-    .products__title {
+.products__title {
     display: inline-block;
     background-color: white;
     padding: 0 1.25rem; /* 20px / 16px = 1.25rem */
     position: relative;
     z-index: 1;
-    }
+}
 
-    .products__header::before {
+.products__header::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -749,7 +748,7 @@ a {
     right: 0;
     border-top: 0.0625rem solid black; /* 1px / 16px = 0.0625rem */
     z-index: 0;
-    }
+}
 
 .products-container {
     position: relative;
@@ -866,7 +865,6 @@ a {
     font-size: 1.5rem;
     padding: 0.625rem 0.9375rem;
     cursor: pointer;
-    z-index: 10;
 }
 
 .left-arrow {
@@ -877,8 +875,7 @@ a {
     right: 0.625rem;
 }
 
-
-/* --- Features --- */
+/* * --- Features --- */
 .features {
     width: 90%;
     margin: 0 auto;
@@ -1166,6 +1163,10 @@ a {
         display: none;
     }
 
+    .header__input--active {
+        display: block;
+    }
+
     .header__icon-seacrh {
         font-size: 1rem;
         position: relative;
@@ -1176,6 +1177,18 @@ a {
         -moz-transform: translateY(0);
         -ms-transform: translateY(0);
         -o-transform: translateY(0);
+    }
+
+    .header__icon-seacrh--active {
+        font-size: 0.8rem;
+        position: absolute;
+        top: 50%;
+        left: 0.7rem;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
     }
 
     /* * --- Banner --- */
@@ -1238,6 +1251,10 @@ a {
 
 @media screen and (max-width: 800px) {
     /* * --- Nav --- */
+    .header {
+        height: 3.35rem;
+    }
+
     .header__nav {
         width: 20em;
         height: 100vh;
@@ -1248,6 +1265,8 @@ a {
         top: 0;
         right: 0;
         z-index: 10;
+        opacity: 0;
+        visibility: hidden;
         transform: scaleX(0);
         transform-origin: right;
         transition: all .3s ease;
@@ -1262,6 +1281,8 @@ a {
 }
 
     .header__nav--visible {
+        opacity: 1;
+        visibility: visible;
         transform: scaleX(1);
         -webkit-transform: scaleX(1);
         -moz-transform: scaleX(1);
@@ -1362,6 +1383,8 @@ a {
         top: 0;
         left: 0;
         z-index: 20;
+        opacity: 0;
+        visibility: hidden;
         transform: scaleX(0);
         transform-origin: right;
         transition: all .3s ease;
@@ -1377,6 +1400,8 @@ a {
     }
 
     .header__submenu--visible {
+        opacity: 1;
+        visibility: visible;
         transform: scaleX(1);
         -webkit-transform: scaleX(1);
         -moz-transform: scaleX(1);
