@@ -634,20 +634,16 @@ a {
     width: 90%;
     display: grid;
     grid-template-columns: repeat(3, auto);
-    gap: 2rem;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
+    justify-content: space-between;
 }
 
 .collection__box {
+    width: 28vw;
+    height: 40vw;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 28vw;
-    height: 40vw;
-    max-width: 60vh;
 }
 
 .collection__box figure {
@@ -729,7 +725,7 @@ a {
     position: relative;
     text-align: center;
     margin: 5rem 0;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     text-transform: uppercase;
 }
 
@@ -893,7 +889,7 @@ a {
 .features {
     width: 90%;
     margin: 0 auto;
-    margin-top: 5rem;
+    margin-top: 3rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
@@ -1520,7 +1516,10 @@ a {
 
     /* * --- Collections --- */
     .collections {
-        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-evenly;
+        row-gap: 2rem;
     }
 
     .collection__box {
@@ -1530,6 +1529,7 @@ a {
 
     .collection__box:last-child {
         grid-column: span 2;
+        justify-self: center;
     }
 }
 
