@@ -141,7 +141,194 @@ $(() => {
     searchInput.on('focus', showSearching);
 
     // * Responsive nav
-    
+    let elementsCreated = false;
+    let elementsDeleted = true;
+
+    // Menu icon
+    let link;
+    let icon;
+
+    // Principal content
+    let principalContent;
+    let closeIcon;
+
+    // Header session
+    let headerSession;
+
+    const createMenuIcon = () => {
+        // Creo los elementos
+        link = $('<a></a>').attr('class', 'header__icon-link');
+        icon = $('<i></i>').attr('class', 'fa-solid fa-bars header__icon');
+
+        // Agrego los eventos
+        icon.on('click', openMenu);
+
+        // Agrego los elementos al dom
+        link.append(icon);
+        $('#headerIcons').append(link);
+    }
+
+    const deleteMenuIcon = () => {
+        icon.off('click');
+        link.remove();
+    }
+
+    const createPrincipalContent = () => {
+        // Creo los elementos
+        principalContent = $('<div></div>').attr('class', 'header__principal-content');
+        closeIcon = $('<i></i>').attr('class', 'fa-solid fa-xmark');
+        
+        // Agrego los eventos
+        closeIcon.on('click', closeMenu);
+
+        // Agrego los elementos al dom
+        principalContent.append(closeIcon).append($('#headerList')).append($('#headerSession'));
+        $('#nav').append(principalContent);
+    };
+
+    const deletePrincipalContent = () => {
+        closeIcon.off('click');
+
+        $('#nav').append($('#headerList'));
+        principalContent.remove();
+    }
+
+    const createlinkContainer = (element) => {
+        $(element).each(function() {
+            // Creo los elementos
+            const linkContainer = $('<div></div>').attr('class', 'header__link-container');
+            const linkIcon = $('<i></i>').attr('class', 'fa-solid fa-angle-right header__link-icon');
+            let link;
+            let submenu;
+
+            if (element === '.header__item') {
+                link = $(this).find('.header__link');
+                submenu = $(this).find('.header__submenu');
+
+                linkContainer.on('click', function() {
+                    submenu.addClass('header__submenu--visible');
+                });
+            } else {
+                link = $(this).find('.header__title');
+            }
+
+            // Agrego los elementos al dom
+            linkContainer.append(link).append(linkIcon);
+            $(this).prepend(linkContainer);
+        });
+    };
+
+    const deleteLinkContainer = () => {
+        $('.header__link-container').each(function() {
+            const parent = $(this).parent();
+            const link = $(this).find('a');
+
+            parent.prepend(link);
+            $(this).remove();
+        });
+    };
+
+    const createSubmenuTop = () => {
+        $('.header__submenu').each(function() {
+            // Creo los elementos
+            const submenuTop = $('<div></div>').attr('class', 'header__submenu-top');
+            const submenuReturn = $('<div></div>').attr('class', 'header__return');
+            const returnIcon = $('<i></i>').attr('class', 'fa-solid fa-angle-left');
+            const submenutext = $('<p></p>').attr('class', 'header__return-text').text('volver');
+            const closeIcon = $('<i></i>').attr('class', 'fa-solid fa-xmark');
+
+            // Agrego los eventos
+            submenuReturn.on('click', function() {
+                $(this).closest('.header__submenu').removeClass('header__submenu--visible');
+            });
+
+            // Agrego los elementos al dom
+            submenuReturn.append(returnIcon).append(submenutext);
+            submenuTop.append(submenuReturn).append(closeIcon);
+            $(this).prepend(submenuTop);
+        });
+    };
+
+    const deleteSubmenuTop = () => {
+        $('.header__return').off('click');
+        $('.header__submenu-top').remove();
+    };
+
+    const createSubmenuTitle = () => {
+        $('.header__item').each(function() {
+            // Creo los elementos
+            const text = $(this).find('.header__link').text();
+            const submenuTop = $(this).find('.header__submenu-top');
+            const submenuTitle = $('<h3></h3>').attr('class', 'header__submenu-title').text(text);
+
+            // Agrego los elementos al dom
+            submenuTop.after(submenuTitle);
+        });
+    };
+
+    const deleteSubmenuTitle = () => {
+        $('.header__submenu-title').remove();
+    };
+
+    const createHeaderSession = () => {
+        // Creo los elementos
+        headerSession = $('<div></div>').attr({
+            'class': 'header__session',
+            'id': 'headerSession'
+        });
+        const sessionText = $('<p></p>').attr('class', 'header__text').text('Hazte con Trendify menber para descubrir los mejores productos y estar al tanto de las ultimas novedades');
+        const sessionBtns = $('<div></div>').attr('class', 'header__btns');
+        const sessionBtn1 = $('<a></a>').attr('class', 'header__session-btn').text('Unete a nosotros');
+        const sessionBtn2 = $('<a></a>').attr('class', 'header__session-btn header__session-btn--white').text('Iniciar sesion');
+
+        // Agrego los elementos al dom
+        sessionBtns.append(sessionBtn1).append(sessionBtn2);
+        headerSession.append(sessionText).append(sessionBtns)
+        $('#headerList').after(headerSession);
+    };
+
+    const deleteHeaderSession = () => {
+        headerSession.remove();
+    };
+
+    const responsiveMenu = () => {
+        if (window.innerWidth <= 800 && !elementsCreated) {     
+            createMenuIcon();
+            createlinkContainer('.header__item');
+            createSubmenuTop();
+            createSubmenuTitle();
+            createlinkContainer('.header__sublist');
+            createHeaderSession();
+            createPrincipalContent();
+
+            elementsCreated = true;
+            elementsDeleted = false;
+        } else if (window.innerWidth > 800 & !elementsDeleted) {
+            deleteSubmenuTitle();
+            deleteSubmenuTop();
+            deleteMenuIcon();
+            deleteLinkContainer();
+            // deleteLinkContainer('.header__sublist');
+            deleteHeaderSession();
+            deletePrincipalContent();
+
+            elementsCreated = false;
+            elementsDeleted = true;
+        }
+    };
+
+    const openMenu = () => {
+        $('#nav').addClass('header__nav--visible');
+        $('#body').addClass('no-scroll');
+    };
+
+    const closeMenu = () => {
+        $('#nav').removeClass('header__nav--visible');
+        $('#body').removeClass('no-scroll');
+    };
+
+    window.addEventListener('resize', responsiveMenu);
+    responsiveMenu();
 
     //  * Catalogo Horizontal
     const catalogo = document.querySelector('.products');
