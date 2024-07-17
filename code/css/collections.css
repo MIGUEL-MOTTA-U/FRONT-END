@@ -26,7 +26,7 @@
     height: 30rem;
     position: absolute;
     top: 50%;
-    transform: translate(0, -50%);
+    transform: translate(0, -20%);
     border-radius: 18px;
     box-shadow: 0 2rem 3rem #505050;
     background-position: 50% 50%;
