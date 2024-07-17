@@ -157,6 +157,15 @@ $(() => {
     // Header session
     let headerSession;
 
+    const createOverlay = () => {
+        const overlay = $('<div></div>').attr('class', 'overlay');
+        $('#body').prepend(overlay);
+    }
+
+    const deleteOverlay = () => {
+        $('.overlay').remove();
+    }
+
     const createMenuIcon = () => {
         // Creo los elementos
         link = $('<a></a>').attr('class', 'header__icon-link');
@@ -336,11 +345,13 @@ $(() => {
     const openMenu = () => {
         $('#nav').addClass('header__nav--visible');
         $('#body').addClass('no-scroll');
+        createOverlay();
     };
 
     const closeMenu = () => {
         $('#nav').removeClass('header__nav--visible');
         $('#body').removeClass('no-scroll');
+        deleteOverlay();
     };
 
     window.addEventListener('resize', responsiveMenu);
