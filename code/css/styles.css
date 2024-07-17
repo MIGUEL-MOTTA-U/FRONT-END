@@ -729,6 +729,7 @@ a {
     position: relative;
     text-align: center;
     margin: 5rem 0;
+    margin-bottom: 3rem;
     text-transform: uppercase;
 }
 
@@ -892,7 +893,7 @@ a {
 .features {
     width: 90%;
     margin: 0 auto;
-    margin-top: 8rem;
+    margin-top: 5rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
@@ -1277,6 +1278,7 @@ a {
     /* * --- Nav --- */
     .header {
         height: 3.35rem;
+        padding: 0 1.5rem;
     }
 
     .header__nav {
@@ -1320,7 +1322,7 @@ a {
     
     .fa-xmark {
         width: 100%;
-        margin: 1.5em 0;
+        margin: 1em 0;
         color: #535353;
         font-size: 2em;
         display: flex;
@@ -1358,7 +1360,7 @@ a {
     }
 
     .header__session {
-        margin-top: 4em;
+        margin: 4em 0;
     }
 
     .header__text {
@@ -1454,6 +1456,7 @@ a {
 
     .header__submenu-title {
         font-size: 1.5em;
+        margin-top: 1rem;
         margin-bottom: 1.5em;
     }
 
@@ -1521,8 +1524,8 @@ a {
     }
 
     .collection__box {
-        width: 40vw;
-        height: 62vw;
+        width: 45vw;
+        height: 67vw;
     }
 
     .collection__box:last-child {
@@ -1613,17 +1616,12 @@ a {
 
     /* * --- Links --- */
     .links {
-        grid-template-columns: repeat(1, auto);
-        row-gap: 3rem;
+        grid-template-columns: repeat(2, 1fr);
+        /* row-gap: 3rem; */
     }
 
     .links__content,
     .links__sc-n {
-        text-align: center;
-        justify-self: center;
-    }
-
-    .links__sc-n-list {
-        justify-content: center;
+        margin: 0 2rem;
     }
 }
