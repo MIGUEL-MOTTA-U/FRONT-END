@@ -5,10 +5,6 @@
     padding-top: 0.8rem;
 }
 
-a{
-    text-decoration: none;
-}
-
 .catalogue{
     display: flex;
     flex-wrap: wrap;
