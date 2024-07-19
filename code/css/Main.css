@@ -95,11 +95,12 @@ a {
     height: 2rem;
     width: 2rem;
     align-self: center;
+    position: relative;
 }
 
 .header__img {
-    height: 100%;
-    width: 100%;
+    height: 2rem;
+    width: 2rem;
 }
 
 /* menu */
@@ -274,7 +275,7 @@ a {
 
 /* Searching */
 .header__searching {
-    width: 100%;
+    width: 100vw;
     padding: 1rem 0;
     padding-bottom: 2rem;
     background-color: #fff;
