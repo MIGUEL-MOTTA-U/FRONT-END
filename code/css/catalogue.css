@@ -1,0 +1,222 @@
+.catalogue .catalogue__name{
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+    padding-top: 0.8rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+.catalogue{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin: 4rem 0;
+}
+
+.catalogue__content{
+    min-height: 40rem;
+    position: relative;
+    width: 20rem;
+    margin: 16px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    padding-top: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0,0.25), 0 10px 10px rgba(0, 0, 0,0.22);
+    transition: .4s;
+    background: white;
+
+}
+
+.catalogue .catalogue__content:hover{
+    box-shadow: 0 3px 6px rgba(0, 0, 0,0.16), 0 3px 6px rgba(0, 0, 0,0.23);
+    transform: translate(0, -1rem);
+}
+
+.catalogue__content img{
+    width: 80%;
+    height: 55%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+.catalogue__content .catalogue__description{
+    text-align: center;
+    color: #b2bec3;
+    padding-top:0 8px;
+}
+
+.catalogue__content .catalogue__price{
+    font-size: 26px;
+    text-align: center;
+    color:#222f3e;
+}
+.catalogue__content ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+}
+
+.catalogue__content li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.catalogue__content .fa{
+    font-size: 26px;
+    transition: .4s;
+    margin: 3px;
+}
+
+.catalogue__content .checked{
+    color:#ff9f43;
+}
+
+.catalogue__content .fa:hover{
+    transform: scale(1.3);
+    transition: .6s;
+}
+
+.catalogue__content button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 24px;
+    color: #ffff;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    outline: none;
+    cursor: pointer;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.catalogue__content .buy__square{
+    background-color: #2183a2;
+}
+
+/* --- Me falta refinar unos bordes --- */
+
+@media screen and (max-width: 1630px) {
+    .catalogue__content{
+        width: 30%;
+        min-height: 45rem;
+    }
+
+    .catalogue__content .catalogue__description{
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .catalogue__content{
+        min-height: 45rem;
+    }
+
+    .catalogue__content .catalogue__description{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 704px) {
+    .catalogue__content .catalogue__description{
+        display: none;
+    }
+
+    .catalogue__content li{
+        font-size: 0.03rem;
+    }
+    .catalogue__content .catalogue__name{
+        font-size: 1.5rem;
+    }
+
+    .catalogue__content .catalogue__price{
+        font-size: 1.5rem;
+    }
+
+    .catalogue__content ul{
+        scale: 0.8;
+    }
+
+    .catalogue__content{
+        width: 40%;
+        min-height: 23rem;
+    }
+
+    .catalogue__content button{
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .catalogue__content .catalogue__description{
+        display: none;
+    }
+
+    .catalogue__content li{
+        font-size: 0.03rem;
+    }
+    .catalogue__content .catalogue__name{
+        font-size: 1.3rem;
+    }
+
+    .catalogue__content .catalogue__price{
+        font-size: 1.3rem;
+    }
+
+    .catalogue__content ul{
+        scale: 0.6;
+    }
+
+    .catalogue__content{
+        width: 40%;
+        min-height: 23rem;
+    }
+
+    .catalogue__content button{
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .catalogue__content .catalogue__description{
+        display: none;
+    }
+
+    .catalogue__content li{
+        font-size: 0.03rem;
+    }
+    .catalogue__content .catalogue__name{
+        font-size: 1.1rem;
+    }
+
+    .catalogue__content .catalogue__price{
+        font-size: 1.1rem;
+    }
+
+    .catalogue__content ul{
+        scale: 0.5;
+    }
+
+    .catalogue__content{
+        width: 35%;
+        min-height: 23rem;
+    }
+
+    .catalogue__content button{
+        font-size: 0.8rem;
+    }
+}
