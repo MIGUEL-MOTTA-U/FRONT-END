@@ -579,21 +579,6 @@
     .suscribe {
         width: 90%;
     }
-
-    /* * --- Links --- */
-    .links {
-        grid-template-columns: repeat(3, auto);
-    }
-
-    .links__sc-n {
-        margin-top: 2rem;
-        grid-column: span 3;
-    }
-
-    .links__sc-n-list {
-        display: flex;
-        flex-wrap: wrap;
-    }
 }
 
 @media screen and (max-width: 900px) {
@@ -665,23 +650,6 @@
         width: 100%;
         margin-bottom: 2rem;
     }
-
-    /* * --- Links --- */
-    .links {
-        grid-template-columns: repeat(2, auto);
-        row-gap: 2rem;
-    }
-
-    .links__content,
-    .links__sc-n {
-        margin: 0 3rem;
-        justify-self: start;
-    }
-
-    .links__sc-n {
-        margin-top: 0;
-        grid-column: span 1;
-    }
 }
 
 @media screen and (max-width: 550px) {
@@ -719,16 +687,5 @@
     .features {
         width: 100%;
         margin-top: 8rem;
-    }
-
-    /* * --- Links --- */
-    .links {
-        grid-template-columns: repeat(2, 1fr);
-        /* row-gap: 3rem; */
-    }
-
-    .links__content,
-    .links__sc-n {
-        margin: 0 2rem;
     }
 }
