@@ -159,6 +159,22 @@
     left: 0.625rem;
 }
 
+.left-arrow {
+    left: 0.625rem;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .right-arrow {
     right: 0.625rem;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
