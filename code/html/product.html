@@ -476,7 +476,7 @@
                 <p>Total: </p> 
                 <p class="cart__ammount"> <span id="total">0</span> COP</p>
             </div>
-            <button class="cart__shopping__btn" onclick="clearCart()">Finalizar Combra</button> <!-- Esta funcion vacia el carrito pero la podemos usar para hacer una compra-->
+            <button class="cart__shopping__btn" id="finishPurchaseBtn">Finalizar Compra</button>
         </div>
         <!-- Hasta aqui  -->
         <!-- Product -->
@@ -560,7 +560,7 @@
 
                 <!-- Details button -->
                 <!-- Cambio desde aqui -->
-                <button class="details__btn" onclick="addToCart(getIdByName('Jordan blancos hombre'))">Añadir al carrito</button>
+                <button class="details__btn" id="addToCartBtn">Añadir al carrito</button>
                 <!-- Hasta aqui -->
                 <!-- details acquisitions -->
                 <div class="details__acquisitions">

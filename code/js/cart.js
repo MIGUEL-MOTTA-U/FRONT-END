@@ -11,7 +11,9 @@ let products = [
     {id: 5, name: "Jordan negros hombre", price: 139.99, imag: "../assets/tenis_2.webp", refCode: "00000-004",color: "Negro", size:"41" , link: "../html/index.html"},
     {id: 6, name: "hoodie con cremallera", price: 119.99, imag: "../assets/hoodie_man.webp", refCode: "00000-005",color: "Verde Oscuro", size:"M" , link: "../html/index.html"},
     {id: 7, name: "Jean Blanco Mujer", price: 69.99, imag: "../assets/jean.webp", refCode: "00000-006",color: "Claro", size:"36" , link: "../html/index.html"},
-    {id: 8, name: "Falda con vuelo", price: 39.99, imag: "../assets/falda.webp", refCode: "00000-007",color: "Rojo", size:"S" , link: "../collections.html"}
+    {id: 8, name: "Falda con vuelo", price: 39.99, imag: "../assets/falda.webp", refCode: "00000-007",color: "Rojo", size:"S" , link: "../collections.html"},
+    {id: 9, name: "Nike Air Force", price: 500.000, imag: "../assets/product/product_img_1.png", refCode: "00000-008",color: "Blanco", size:"38" , link: "../collections.html"},
+    {id: 10, name: "Nike Air Force", price: 500.000, imag: "../assets/product/product_color_2.png", refCode: "00000-009",color: "Negro", size:"36" , link: "../collections.html"}
 ];
 
 function getIdByName(name){
@@ -189,7 +191,24 @@ function toggleCart() {
 document.addEventListener('DOMContentLoaded', function() {
     const cartIcon = document.getElementById('cart-icon');
     const closeCartBtn = document.getElementById('close-cart');
-    
+    // Agregar al carro
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', function() {
+            const productNameElement = document.querySelector('.details__h1');
+            if (productNameElement) {
+                const productName = productNameElement.textContent.trim();
+                addToCart(getIdByName(productName));
+            } else {
+                console.error('No se pudo encontrar el nombre del producto');
+            }
+        });
+    }
+    // Finalizar compra
+    const finishPurchaseBtn = document.getElementById('finishPurchaseBtn');
+    if (finishPurchaseBtn) {
+        finishPurchaseBtn.addEventListener('click', clearCart);
+    }
     if (cartIcon) {
         cartIcon.addEventListener('click', function(e) {
             e.preventDefault(); // Previene la recarga de la página
