@@ -14,6 +14,10 @@
     <script src="../js/Main.js"></script>
     <script src="../js/signUp.js"></script>
     <title>Trendify</title>
+    <!-- Cambios desde aqui -->
+    <link rel="stylesheet" href="../css/cart.css">
+    <script src="../js/cart.js"></script>
+    <!-- Hasta aqui -->
 </head>
 <body>
     <header class="header">
@@ -437,7 +441,9 @@
                     <i class="fa-regular fa-heart header__icon"></i>
                 </a>
                 <a href="" id="cart-icon" class="header__icon-link">
-                    <i class="fa-solid fa-bag-shopping header__icon"></i>
+                    <!-- Cambios desde aqui -->
+                    <i class="fa-solid fa-bag-shopping header__icon"></i><span id="cart-count">0</span>
+                    <!-- Hasta aqui  -->
                 </a>
                 <a href="logIn.html" class="header__icon-link">
                     <i class="fa-regular fa-user header__icon"></i>
@@ -447,6 +453,31 @@
     </header>
 
     <main class="main">
+        <!-- Cambios desde aqui -->
+        <!-- Carrito desplegable -->
+        <div id="sliding-cart" class="sliding-cart">
+            <div class="cart-header">
+                <h4>Carrito de Compras</h4>
+                <button id="close-cart" class="close-cart-btn">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <ul id="cart-list"></ul>
+            <div class="cart__shopping__info">
+                <p>Subtotal: </p> 
+                <p class="cart__ammount"> <span id="subtotal">0</span> COP</p>
+            </div>
+            <div class="cart__shopping__info">
+                <p>Costo envio: </p> 
+                <p class="cart__ammount"> <span id="deliCost">0</span> COP</p>
+            </div>
+            <div class="cart__shopping__info" id="total__ammount">
+                <p>Total: </p> 
+                <p class="cart__ammount"> <span id="total">0</span> COP</p>
+            </div>
+            <button class="cart__shopping__btn" id="finishPurchaseBtn">Finalizar Compra</button>
+        </div>
+        <!-- Hasta aqui  -->
         <!-- Form -->
         <div class="container container--left">
             <form action="" class="form" id="form">
