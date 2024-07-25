@@ -207,3 +207,44 @@ body.cart-open {
     padding: 0;
     margin: 0;
 }
+:root {
+    --error-color: #930000;
+    --correct-color: #64b418;
+}
+
+.message {
+    padding: 1rem 2rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    border-bottom: 3px solid transparent;
+    border-radius: 5px;
+    box-shadow: 3px 5px 10px 0px #505050;
+    animation: fall .8s ease 0s 1 normal forwards;
+}
+
+.message__text {
+    font-size: 0.8rem;
+}
+
+.fa-circle-exclamation {
+    color: var(--error-color);   
+}
+
+.fa-circle-check {
+    color: var(--correct-color);   
+}
+
+.message--error {
+    border-bottom-color: var(--error-color);
+}
+
+.message--correct {
+    border-bottom-color: var(--correct-color);
+}

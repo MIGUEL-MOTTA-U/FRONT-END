@@ -137,9 +137,21 @@ function clearCart() {
     localStorage.removeItem('cart');
     updateCart();
     updateCartIcon();
-    flag ? alert("Se ha realizado la compra con exito."):alert("El carrito esta vacio.");
+    flag ? showMessage('correct', 'Se realizo la compra con éxito.'):showMessage('error', 'El carrito está vacío.');;
 }
 
+function showMessage(type, text) {
+    const message = $('<div></div>').attr('class', `message message--${type}`);
+    const icon = $('<i></i>').attr('class', type === 'correct' ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-exclamation');
+    const textElement = $('<p></p>').attr('class', 'message__text').text(text);
+
+    message.append(icon).append(textElement);
+    $('body').prepend(message);
+
+    setTimeout(() => {
+        message.remove();
+    }, 3000);
+}
 
 function removeFromCart(id) {
     let index = cart.findIndex(item => item.id === id);
