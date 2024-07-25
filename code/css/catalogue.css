@@ -8,7 +8,7 @@
 }
 
 .products__title {
-    font-size: 3rem;
+    font-size: 2rem;
     display: inline-block;
     background-color: white;
     padding: 0 1.25rem;
@@ -177,4 +177,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* * --- Quieries --- */
+@media screen and (max-width: 700px) {
+    /* --- Products --- */
+    .products__title {
+        font-size: 1.5rem;
+    }
 }
