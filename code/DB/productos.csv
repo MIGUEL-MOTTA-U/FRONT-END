@@ -1,0 +1,11 @@
+id,name,price,imag,refCode,color,size,link
+1,Chaqueta negra hombre,99.99,../assets/chaqueta_1.jpg,00000-000,Negro,M,../html/index.html
+2,Pantalon Beige mujer,79.99,../assets/pant_1.jpg,00000-001,Beige,S,../html/index.html
+3,Camisa manga larga hombre,89.99,../assets/camisa_slim.jpeg,00000-002,Celeste,L,../html/index.html
+4,Jordan blancos hombre,139.99,../assets/tenis_1.webp,00000-003,Blanco,38,../html/index.html
+5,Jordan negros hombre,139.99,../assets/tenis_2.webp,00000-004,Negro,41,../html/index.html
+6,hoodie con cremallera,119.99,../assets/hoodie_man.webp,00000-005,Verde Oscuro,M,../html/index.html
+7,Jean Blanco Mujer,69.99,../assets/jean.webp,00000-006,Claro,36,../html/index.html
+8,Falda con vuelo,39.99,../assets/falda.webp,00000-007,Rojo,S,../collections.html
+9,Nike Air Force,500,../assets/product/product_img_1.png,00000-008,Blanco,38,../collections.html
+10,Nike Air Force,500,../assets/product/product_color_2.png,00000-009,Negro,36,../collections.html
