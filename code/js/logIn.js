@@ -2,14 +2,33 @@ $(() => {
     let model = {
         userFound: false,
 
+        init: () => {
+            if (!localStorage.user) {
+                localStorage.user = JSON.stringify({});
+            }
+        },
+
+        logIn: (obj) => {
+            const user = JSON.parse(localStorage.user);
+            user.name = obj.name; 
+            user.email = obj.email; 
+            user.password = obj.password; 
+            localStorage.user = JSON.stringify(user);
+        },
+
+        logOut: () => {
+            localStorage.user = JSON.stringify({});
+        },
+
         searchUser(email, password) {
             this.userFound = false;
+            let user = null
             
             if (localStorage.users) {
                 const users = JSON.parse(localStorage.users);
 
                 for (let i = 0; i < users.length; i++) {
-                    const user = users[i];
+                    user = users[i];
 
                     if (user.email === email && user.password === password) {
                         this.userFound = true;
@@ -17,11 +36,14 @@ $(() => {
                     }
                 }
             }
+
+            return user;
         }
     };
 
     let controller = {
         init: () => {
+            model.init();
             view.init();
         },
 
@@ -39,6 +61,10 @@ $(() => {
 
         removeMessage: () => {
             view.removeMessage();
+        },
+
+        logIn: (user) => {
+            model.logIn(user);
         }
     };
 
@@ -49,10 +75,11 @@ $(() => {
             form.on('submit', e => {
                 e.preventDefault();
 
-                controller.searchUser($('#email').val(), $('#password').val());
+                const user = controller.searchUser($('#email').val(), $('#password').val());
                         
                 if (controller.userFound()) {
-                    controller.submittedMessage();                    
+                    controller.submittedMessage();      
+                    controller.logIn(user);
                                         
                     setTimeout(() => {
                         controller.removeMessage();
