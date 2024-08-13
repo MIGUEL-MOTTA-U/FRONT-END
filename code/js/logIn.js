@@ -1,28 +1,42 @@
 $(() => {
-    let model = {
+    let viewModel = {
+        sessionStarted: ko.observable(false),
         userFound: false,
+        user: ko.observable({}),
 
         init: () => {
             if (!localStorage.user) {
                 localStorage.user = JSON.stringify({});
             }
+            viewModel.user(JSON.parse(localStorage.user));
+
+            if (!localStorage.sessionStarted) {
+                localStorage.sessionStarted = JSON.stringify(false);
+            }
+            viewModel.sessionStarted(JSON.parse(localStorage.sessionStarted))
         },
 
-        logIn: (obj) => {
+        logIn(obj) {
             const user = JSON.parse(localStorage.user);
             user.name = obj.name; 
             user.email = obj.email; 
             user.password = obj.password; 
             localStorage.user = JSON.stringify(user);
+            this.user(user);
+            this.sessionStarted(true);
         },
 
-        logOut: () => {
+        logOut() {
             localStorage.user = JSON.stringify({});
+            localStorage.sessionStarted = JSON.stringify(false);
+            this.sessionStarted(false);
+            this.userFound = false;
+            this.user({});
         },
 
         searchUser(email, password) {
             this.userFound = false;
-            let user = null
+            let user = null;
             
             if (localStorage.users) {
                 const users = JSON.parse(localStorage.users);
@@ -32,6 +46,7 @@ $(() => {
 
                     if (user.email === email && user.password === password) {
                         this.userFound = true;
+                        localStorage.sessionStarted = JSON.stringify(true);
                         break;
                     }
                 }
@@ -43,13 +58,13 @@ $(() => {
 
     let controller = {
         init: () => {
-            model.init();
+            viewModel.init();
             view.init();
         },
 
-        userFound: () => model.userFound,
+        userFound: () => viewModel.userFound,
 
-        searchUser: (email, password) => model.searchUser(email, password),
+        searchUser: (email, password) => viewModel.searchUser(email, password),
 
         submittedMessage: () => {
             userFoundView.submittedMessage();
@@ -64,15 +79,17 @@ $(() => {
         },
 
         logIn: (user) => {
-            model.logIn(user);
+            viewModel.logIn(user);
+        },
+
+        logOut: () => {
+            viewModel.logOut();
         }
     };
 
     let view = {
         init: () => {
-            const form = $('#form');
-
-            form.on('submit', e => {
+            $('#form').on('submit', e => {
                 e.preventDefault();
 
                 const user = controller.searchUser($('#email').val(), $('#password').val());
@@ -94,6 +111,10 @@ $(() => {
                     }, 5000);
                 }
             });
+
+            $('#logOut-btn').on('click', () => {
+                controller.logOut();
+            }) 
         },
 
         removeMessage: () => {
@@ -123,5 +144,6 @@ $(() => {
         },
     }
 
+    ko.applyBindings(viewModel);
     controller.init();
 })

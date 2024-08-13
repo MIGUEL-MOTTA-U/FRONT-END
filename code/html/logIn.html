@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/sessionPages.css">
     <link rel="stylesheet" href="../css/logIn.css">
     <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/knockout-3.5.1.js"></script>
     <script src="../js/Main.js"></script>
     <script src="../js/logIn.js"></script>
     <title>Trendify</title>
@@ -481,7 +482,7 @@
         <!-- Hasta aqui  -->
         <!-- Form -->
         <div class="container container--left">
-            <form action="" class="form" id="form">
+            <form action="" class="form" id="form" data-bind="visible: !sessionStarted()">
                 <h2 class="form__h2">Crear cuenta</h2>
                 <div class="form__inputs">
                     <!-- Email -->
@@ -491,7 +492,6 @@
                             <span class="form__span">E-mail</span>
                         </div>
                     </div>
-
                     <!-- Password -->
                     <div class="form__group">
                         <div class="form__input-container">
@@ -499,15 +499,25 @@
                             <span class="form__span">Contraseña</span>
                         </div>
                     </div>
-
                     <!-- Button -->
                     <div class="form__btn-container">
                         <p class="form__text form__text--bold">¿Has olvidado la contraseña?</p>
-                        <input type="submit" value="Iniciar sesion" class="form__submit">
+                        <input type="submit" value="Iniciar sesion" class="form__submit btn">
                         <p class="form__text form__text--center">¿No tienes cuenta? <a href="signUp.html" class="form__text--bold">Registrate</a></p>
                     </div>
                 </div>
             </form>
+
+            <div data-bind="visible: sessionStarted()">
+                <div class="user" data-bind="with: user">
+                    <div class="user__img">
+                        <i class="fa-solid fa-user user__i"></i>
+                    </div>
+                    <h3 class="user__h3" data-bind="text: name"></h3>
+                    <p class="user__p" data-bind="text: email"></p>
+                    <button class="user__btn btn" id="logOut-btn">Cerrar sesion</button>
+                </div>
+            </div>
         </div>
 
         <!-- Image -->
