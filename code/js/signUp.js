@@ -1,9 +1,25 @@
+import User from "./user.js";
+
 $(() => {
     let model = {
+        init: () => {
+            if (!localStorage.users) {
+                localStorage.users = JSON.stringify([]);
+            }
+        },
+
+        addUser: user => {
+            let data = JSON.parse(localStorage.users);
+            data.push(user);            
+            localStorage.users = JSON.stringify(data);
+        },
+
+        createUser: (name, email, password) =>  new User(name, email, password),
+
         expressions: {
             name: /^[a-zA-Z\s]+$/,
             email: /^[a-zA-Z\d\.\_\-]+@[a-zA-Z\d]+\.[a-zA-Z\d\.]{2,}$/,
-            password: /^(?=.*[A-Z])(?=.*[\W_])(?=.*\d)[A-Za-z\d\W_]{8,16}$/
+            password: /^(?=.*[A-Z])(?=.*[\W_])(?=.*\d)[A-Za-z\d\W_]{4,16}$/
         },
     
         messages: {
@@ -89,6 +105,7 @@ $(() => {
 
     let controller = {
         init: () => {
+            model.init();
             view.init();
         },
 
@@ -126,7 +143,17 @@ $(() => {
 
         correctFields: () => model.correctFields(),
 
-        getPasswords: () => view.getPasswords()
+        getPasswords: () => view.getPasswords(),
+
+        createUser: (name, email, password) => model.createUser(name, email, password),
+
+        addUser: user => {
+            model.addUser({
+                name: user.name,
+                email: user.email,
+                password: user.password
+            })
+        }
     };
 
     let view = {
@@ -146,6 +173,8 @@ $(() => {
         
                 if (correctFields) {
                     controller.submittedMessage();
+                                
+                    controller.addUser(controller.createUser($('#name').val(), $('#email').val(), $('#password').val()));
         
                     setTimeout(() => {
                         controller.removeMessage();
