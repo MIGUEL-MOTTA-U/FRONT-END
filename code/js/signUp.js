@@ -171,7 +171,8 @@ $(() => {
         
                     setTimeout(() => {
                         controller.removeMessage();
-                    }, 5000);
+                        window.location.assign('../html/logIn.html');
+                    }, 2000);
         
                     view.resetAll();
                 } else {
