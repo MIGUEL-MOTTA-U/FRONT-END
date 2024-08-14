@@ -1,20 +1,8 @@
 $(() => {
     let viewModel = {
-        sessionStarted: ko.observable(false),
+        sessionStarted: ko.observable(JSON.parse(localStorage.sessionStarted)),
         userFound: false,
-        user: ko.observable({}),
-
-        init: () => {
-            if (!localStorage.user) {
-                localStorage.user = JSON.stringify({});
-            }
-            viewModel.user(JSON.parse(localStorage.user));
-
-            if (!localStorage.sessionStarted) {
-                localStorage.sessionStarted = JSON.stringify(false);
-            }
-            viewModel.sessionStarted(JSON.parse(localStorage.sessionStarted))
-        },
+        user: ko.observable(JSON.parse(localStorage.user)),
 
         logIn(obj) {
             const user = JSON.parse(localStorage.user);
@@ -58,7 +46,6 @@ $(() => {
 
     let controller = {
         init: () => {
-            viewModel.init();
             view.init();
         },
 

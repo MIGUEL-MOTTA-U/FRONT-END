@@ -2,12 +2,6 @@ import User from "./user.js";
 
 $(() => {
     let model = {
-        init: () => {
-            if (!localStorage.users) {
-                localStorage.users = JSON.stringify([]);
-            }
-        },
-
         addUser: user => {
             let data = JSON.parse(localStorage.users);
             data.push(user);            
@@ -105,7 +99,6 @@ $(() => {
 
     let controller = {
         init: () => {
-            model.init();
             view.init();
         },
 

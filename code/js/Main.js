@@ -1,4 +1,28 @@
 $(() => {
+    let model = {
+        init: () => {
+            if (!localStorage.user) {
+                localStorage.user = JSON.stringify({});
+            }
+
+            if (!localStorage.sessionStarted) {
+                localStorage.sessionStarted = JSON.stringify(false);
+            }
+
+            if (!localStorage.users) {
+                localStorage.users = JSON.stringify([]);
+            }
+        }
+    }
+
+    let controller = {
+        init: () => {
+            model.init();
+        }
+    }
+
+    controller.init();
+
     const clickOutsideHandler = e => {        
         if (!searching.is(e.target) && searching.has(e.target).length === 0) {
             hideSearching();
