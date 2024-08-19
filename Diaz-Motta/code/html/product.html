@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b8a9da82e2.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Main.css">
+    <link rel="stylesheet" href="../css/catalogue.css">
+    <link rel="stylesheet" href="../css/product.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/Main.js"></script>
+    <script src="../js/Home.js"></script>
+    <script src="../js/product.js"></script>
+    <title>Trendify</title>
+    <!-- Cambios desde aqui -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <link rel="stylesheet" href="../css/cart.css">
+    <script src="../js/cart.js"></script>
+    <!-- Hasta aqui -->
+</head>
+<body>
+    <header class="header">
+        <!-- Logo -->
+        <a href="index.html" class="header__logo">
+            <img src="../assets/logo.png" alt="Logo" class="header__img">
+        </a>
+
+        <!-- Menu -->
+        <nav class="header__nav" id="nav">
+            <ul class="header__list" id="headerList">
+                <li class="header__item">
+                    <a href="./collections.html" class="header__link">Colecciones</a>
+                </li>
+                <li class="header__item">
+                    <a href="" class="header__link">Hombre</a>
+                    <div class="header__submenu">
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Destacados</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Novedades</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Superventas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Zapatillas Y2K</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Summer of sport</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Zapatillas</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Todas las zapatillas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Para el dia a dia</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Futbol</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Baloncesto</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Gym y training</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Ropa</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Toda la Ropa</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Parte de arriba</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Sudaderas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Pantalones cortos</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Pantalones y mallas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Chandales</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Chaquetas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Equipaciones y camisetas</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Accesorios y equipamientos</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Todo accesorios y equipamiento</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Bolsas y mochilas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Gorros y gorras</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Calcetines</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header__item">
+                    <a href="" class="header__link">Mujer</a>
+                    <div class="header__submenu">
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Destacados</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Novedades</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Superventas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Zapatillas Y2K</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Summer of sport</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Zapatillas</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Todas las zapatillas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Para el dia a dia</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Futbol</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Baloncesto</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Gym y training</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Ropa</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Toda la Ropa</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Parte de arriba</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Sudaderas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Leggins</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Pantalones cortos</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Pantalones</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Looks a juego</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Chaquetas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Sujetadores deportivos</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Faldas y vestidos</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Accesorios y equipamientos</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Todo accesorios y equipamiento</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Bolsas y mochilas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Gorros y gorras</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Calcetines</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header__item">
+                    <a href="" class="header__link">Niño/a</a>
+                    <div class="header__submenu">
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Destacados</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Novedades</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Superventas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Adolescentes</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">EasyOn</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Shop Air</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Summer of sport</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Zapatillas</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Todas las zapatillas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Para el dia a dia</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Futbol</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Running</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Baloncesto</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Ropa</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Toda la Ropa</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Parte de arriba</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Sudaderas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Chandales</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Pantalones cortos</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Ropa de deporte</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Pantalones y Leggins</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Chaquetas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Equipaciones y camisetas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Faldas y vestidos</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Niño/a por edad</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Niño/a (entre 7 y 15 años)</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Niño/a (entre 3 y 7 años)</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Niño/a (entre 0 y 3 años)</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Accesorios y equipamientos</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Todo accesorios y equipamiento</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Bolsas y mochilas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Gorros y gorras</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Calcetines</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header__item">
+                    <a href="" class="header__link">Ofertas</a>
+                    <div class="header__submenu">
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Descuentos y ofertas</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Productos con descuento</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Superventas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Ultima oportunidad</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Descuentos para hombre</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Todos los descuentos en hombre</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Zapatillas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Ropa</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Accesorios y equipamiento</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Descuentos para mujer</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Todos los descuentos en mujer</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Zapatillas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Ropa</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Accesorios y equipamiento</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Descuentos para Niño/a</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Todos los descuentos en Niño/a</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Zapatillas</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Ropa</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Accesorios y equipamiento</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <ul class="header__sublist">
+                            <a href="" class="header__title">Descuentos para deporte</a>
+                            <div class="header__subitems">
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Running</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Futbol</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Gym y training</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Baloncesto</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Tenis</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Golf</a>
+                                </li>
+                                <li class="header__subitem">
+                                    <a href="" class="header__sublink">Yoga</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Search and header icons -->
+        <div class="header__rigth-side"  id="header-rs">
+            <!-- Search -->
+            <div class="header__search" id="search">
+                <i class="fa-solid fa-magnifying-glass header__icon-seacrh" id="searchIcon"></i>
+                <input type="text" name="" id="search-input" class="header__input" placeholder="Buscar">
+            </div>
+
+            <!-- Icons -->
+            <div class="header__icons" id="headerIcons">
+                <a href="" class="header__icon-link header__icon-link--heart">
+                    <i class="fa-regular fa-heart header__icon"></i>
+                </a>
+                <a href="" id="cart-icon" class="header__icon-link">
+                    <!-- Cambios desde aqui -->
+                    <i class="fa-solid fa-bag-shopping header__icon"></i><span id="cart-count">0</span>
+                    <!-- Hasta aqui  -->
+                </a>
+                <a href="logIn.html" class="header__icon-link">
+                    <i class="fa-regular fa-user header__icon"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Cambios desde aqui -->
+        <!-- Carrito desplegable -->
+        <div id="sliding-cart" class="sliding-cart">
+            <div class="cart-header">
+                <h4>Carrito de Compras</h4>
+                <button id="close-cart" class="close-cart-btn">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <ul id="cart-list"></ul>
+            <div class="cart__shopping__info">
+                <p>Subtotal: </p> 
+                <p class="cart__ammount"> <span id="subtotal">0</span> COP</p>
+            </div>
+            <div class="cart__shopping__info">
+                <p>Costo envio: </p> 
+                <p class="cart__ammount"> <span id="deliCost">0</span> COP</p>
+            </div>
+            <div class="cart__shopping__info" id="total__ammount">
+                <p>Total: </p> 
+                <p class="cart__ammount"> <span id="total">0</span> COP</p>
+            </div>
+            <button class="cart__shopping__btn" id="finishPurchaseBtn">Finalizar Compra</button>
+        </div>
+        <!-- Hasta aqui  -->
+        <!-- Product -->
+        <section class="product">
+            <!-- Product images -->
+            <section class="product__images">
+                <div class="product__secondar-images">
+                    <div class="product__secondar-image">
+                        <img src="../assets/product/product_img_1.png" alt="Product image" class="product__img">
+                        <div class="product__overlay active"></div>
+                    </div>
+                    <div class="product__secondar-image">
+                        <img src="../assets/product/product_img_2.png" alt="Product image" class="product__img">
+                        <div class="product__overlay"></div>
+                    </div>
+                    <div class="product__secondar-image">
+                        <img src="../assets/product/product_img_3.png" alt="Product image" class="product__img">
+                        <div class="product__overlay"></div>
+                    </div>
+                    <div class="product__secondar-image">
+                        <img src="../assets/product/product_img_4.png" alt="Product image" class="product__img">
+                        <div class="product__overlay"></div>
+                    </div>
+                    <div class="product__secondar-image">
+                        <img src="../assets/product/product_img_5.png" alt="Product image" class="product__img">
+                        <div class="product__overlay"></div>
+                    </div>
+                    <div class="product__secondar-image">
+                        <img src="../assets/product/product_img_6.png" alt="Product image" class="product__img">
+                        <div class="product__overlay"></div>
+                    </div>
+                </div>
+                <div class="product__principal-image">
+                    <div class="product__container">
+                        <img src="../assets/product/product_img_1.png" alt="Product image" class="product__img big" id="principal-image">
+                        <div class="product__icon-container">
+                            <i class="fa-regular fa-heart product__icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product details -->
+            <section class="product__details details">
+                <!-- Details name and price -->
+                <div class="details__name">
+                    <div class="details__head">
+                        <h1 class="details__h1">Nike Air Force</h1>
+                        <p class="details__p big">Zapatillas - hombre</p>
+                    </div>
+                    <p class="details__p big">500.000 COP</p>
+                </div>
+
+                <!-- Details images -->
+                <div class="details__images">
+                    <div class="details__image">
+                        <img src="../assets/product/product_color_1.png" alt="Product image" class="details__img">
+                    </div>
+                    <div class="details__image">
+                        <img src="../assets/product/product_color_2.png" alt="Product image" class="details__img">
+                    </div>
+                </div>
+
+                <!-- Details sizes -->
+                <div class="details__sizes">
+                    <ul class="details__ul">
+                        <li class="details__li">32</li>
+                        <li class="details__li">34</li>
+                        <li class="details__li">36</li>
+                        <li class="details__li">38</li>
+                        <li class="details__li">40</li>
+                        <li class="details__li">42</li>
+                        <li class="details__li">44</li>
+                        <li class="details__li">46</li>
+                    </ul>
+                    <div class="details__sizes-text">
+                        <p class="details__p">Talla y altura: 36 - 175cm</p>
+                        <p class="details__p bold underline">Guia de tallas</p>
+                    </div>
+                </div>
+
+                <!-- Details button -->
+                <!-- Cambio desde aqui -->
+                <button class="details__btn" id="addToCartBtn">Añadir al carrito</button>
+                <!-- Hasta aqui -->
+                <!-- details acquisitions -->
+                <div class="details__acquisitions">
+                    <div class="details__acquisition">
+                        <div class="details__acquisition-container">
+                            <i class="fa-solid fa-shop details__icon"></i>
+                            <p class="details__p bold">Recogida en tienda</p>
+                        </div>
+                        <p class="details__p bold uppercase">Gratis</p>
+                    </div>
+                    <div class="details__acquisition">
+                        <div class="details__acquisition-container">
+                            <i class="fa-solid fa-truck-fast details__icon"></i>
+                            <div class="details__texts">
+                                <p class="details__p bold">Envio a domicilio estandar</p>
+                                <p class="details__p bold gray">En pedidos superiores a 299.000 COP</p>
+                            </div>
+                        </div>
+                        <p class="details__p bold uppercase">Gratis</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Products -->
+        <div class="products__header">
+            <h1 class="products__title">Te podria interesar</h1>
+        </div>
+        <div class="products-container">
+            <button class="arrow left-arrow">&lt;</button>
+            <div class="products">
+                <div class="product_item">
+                    <div class="img-container">
+                        <img src="../assets/chaqueta_1.jpg" alt="Prenda 1">
+                    </div>
+                    <a href="">Chaqueta negra hombre</a>
+                    <p>$99.99</p>
+                </div>
+                <div class="product_item">
+                    <div class="img-container">
+                        <img src="../assets/pant_1.jpg" alt="Prenda 2">
+                    </div>
+                    <a href="">Pantalon Beige mujer</a>
+                    <p>$79.99</p>
+                </div>
+                <div class="product_item">
+                    <div class="img-container">
+                        <img src="../assets/camisa_slim.jpeg" alt="Prenda 3">
+                    </div>
+                    <a href="">Camisa manga larga hombre</a>
+                    <p>$89.99</p>
+                </div>
+                <div class="product_item">
+                    <div class="img-container">
+                        <img src="../assets/tenis_1.webp" alt="Prenda 4">
+                    </div>
+                    <a href="">Jordan blancos hombre</a>
+                    <p>$139.99</p>
+                </div>
+                <div class="product_item">
+                    <div class="img-container">
+                        <img src="../assets/tenis_2.webp" alt="Prenda 5">
+                    </div>
+                    <a href="">Jordan negros hombre</a>
+                    <p>$139.99</p>
+                </div>
+                <div class="product_item">
+                    <div class="img-container">
+                        <img src="../assets/hoodie_man.webp" alt="Prenda 5">
+                    </div>
+                    <a href="">hoodie con cremallera</a>
+                    <p>$119.99</p>
+                </div>
+                <div class="product_item">
+                    <div class="img-container">
+                        <img src="../assets/jean.webp" alt="Prenda 5">
+                    </div>
+                    <a href="">Jean Blanco Mujer</a>
+                    <p>$69.99</p>
+                </div>
+                <div class="product_item">
+                    <div class="img-container">
+                        <img src="../assets/falda.webp" alt="Prenda 5">
+                    </div>
+                    <a href="">Falda con vuelo</a>
+                    <p>$39.99</p>
+                </div>
+            </div>
+            <button class="arrow right-arrow">&gt;</button>
+        </div>
+    </main>
+
+    <footer class="footer translateY">
+        <div class="footer--blue">
+            <!-- Info app -->
+            <div class="links">
+                <!-- links -->
+                <div class="links__content">
+                    <h4 class="links__title">Ayuda</h4>
+                    <ul class="links__list">
+                        <li class="links__item">
+                            <a href="" class="links__link">Comprar online</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Pago online</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Envio</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Devoluciones</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Compra como invitado</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Ticket electronico</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Dar de baja mi suscripcion</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- links -->
+                <div class="links__content">
+                    <h4 class="links__title">Sobre Trendify</h4>
+                    <ul class="links__list">
+                        <li class="links__item">
+                            <a href="" class="links__link">Quienes somos</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Sostenibilidad</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Trabaja con nosotros</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Prensa</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Nuestras tiendas</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- links -->
+                <div class="links__content">
+                    <h4 class="links__title">Politicas</h4>
+                    <ul class="links__list">
+                        <li class="links__item">
+                            <a href="" class="links__link">Politicas, terminos y condiciones</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Cambios y devoluciones</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Politicas de envios para envios online</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Politica de datos</a>
+                        </li>
+                        <li class="links__item">
+                            <a href="" class="links__link">Promociones</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Social networks -->
+                <div class="links__sc-n">
+                    <h4 class="links__title">Siguenos</h4>
+                    <ul class="links__sc-n-list">
+                        <li class="links__sc-n-item">
+                            <a href="" class="links__sc-n-link">
+                                <i class="fa-brands fa-instagram links__sc-n-icon"></i>
+                            </a>
+                        </li>
+                        <li class="links__sc-n-item">
+                            <a href="" class="links__sc-n-link">
+                                <i class="fa-brands fa-facebook-f links__sc-n-icon"></i>
+                            </a>
+                        </li>
+                        <li class="links__sc-n-item">
+                            <a href="" class="links__sc-n-link">
+                                <i class="fa-brands fa-x-twitter links__sc-n-icon"></i>
+                            </a>
+                        </li>
+                        <li class="links__sc-n-item">
+                            <a href="" class="links__sc-n-link">
+                                <i class="fa-brands fa-tiktok links__sc-n-icon"></i>
+                            </a>
+                        </li>
+                        <li class="links__sc-n-item">
+                            <a href="" class="links__sc-n-link">
+                                <i class="fa-brands fa-snapchat links__sc-n-icon"></i>
+                            </a>
+                        </li>
+                        <li class="links__sc-n-item">
+                            <a href="" class="links__sc-n-link">
+                                <i class="fa-brands fa-youtube links__sc-n-icon"></i>
+                            </a>
+                        </li>
+                        <li class="links__sc-n-item">
+                            <a href="" class="links__sc-n-link">
+                                <i class="fa-brands fa-pinterest-p links__sc-n-icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payments -->
+        <div class="payments">
+            <img src="../assets/m_pago_1.png" alt="Payment method" class="payments__img">
+            <img src="../assets/m_pago_2.png" alt="Payment method" class="payments__img">
+            <img src="../assets/m_pago_3.png" alt="Payment method" class="payments__img">
+            <img src="../assets/m_pago_4.png" alt="Payment method" class="payments__img">
+            <img src="../assets/m_pago_5.png" alt="Payment method" class="payments__img">
+            <img src="../assets/m_pago_6.png" alt="Payment method" class="payments__img">
+            <img src="../assets/m_pago_7.png" alt="Payment method" class="payments__img">
+            <img src="../assets/m_pago_8.png" alt="Payment method" class="payments__img">
+        </div>
+
+        <!-- copyright -->
+        <div class="copyright">
+            <p class="copyright__text">Pash S.A.S | Nit. 533.503.175-1 | Todos los derechos reservados Trendify - Trendify</p>
+        </div>
+    </footer>
+</body>
+</html>

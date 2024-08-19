@@ -1,0 +1,31 @@
+/* * --- User info --- */
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user__img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.user__i {
+    font-size: 4rem;
+}
+
+.user__h3 {
+    font-size: 2rem;
+}
+
+/* * --- Image --- */
+.container--right {
+    background-image: url(../assets/login.jpg);
+}
