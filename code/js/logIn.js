@@ -4,6 +4,10 @@ $(() => {
         userFound: false,
         user: ko.observable(JSON.parse(localStorage.user)),
     
+        /**
+         * Logs in the user and updates the user in the localStorage
+         * @param {object} obj object contain the user information
+         */
         logIn(obj) {
             const user = JSON.parse(localStorage.user);
             user.name = obj.name; 
@@ -14,6 +18,9 @@ $(() => {
             this.sessionStarted(true);
         },
     
+        /**
+         * Logs out the user, clears the user data from localStorage, and updates the session state.
+         */
         logOut() {
             localStorage.user = JSON.stringify({});
             localStorage.sessionStarted = JSON.stringify(false);
@@ -22,6 +29,12 @@ $(() => {
             this.user({});
         },
     
+        /**
+         * Searches for a user in the stored users list based on email and password.
+         * @param {string} email the user's email to search for
+         * @param {string} password te user's password to search for
+         * @returns {object|null} the user object if found, otherwise null
+         */
         searchUser(email, password) {
             this.userFound = false;
             let user = null;
@@ -45,36 +58,68 @@ $(() => {
     };
     
     let controller = {
+        /**
+         * Initializes the view.
+         */
         init: () => {
             view.init();
         },
-    
+        
+        /**
+         * Returns whether a user was found.
+         * @returns {true|false} tru if user was found, otherwise false
+         */
         userFound: () => viewModel.userFound,
-    
+        
+        /**
+         * Searches for a user in the stored users list based on email and password.
+         * @param {string} email the user's email to search for
+         * @param {string} password te user's password to search for
+         * @returns {object|null} the user object if found, otherwise null
+         */
         searchUser: (email, password) => viewModel.searchUser(email, password),
-    
+        
+        /**
+         * Displays the message for a successful submission.
+         */
         submittedMessage: () => {
             userFoundView.submittedMessage();
         },
-    
+        
+        /**
+         * Displays the message for a failed submission.
+         */
         failedMessage: () => {
             userNotFound.failedMessage();
         },
-    
+        
+        /**
+         * Removes any displayed message.
+         */
         removeMessage: () => {
             view.removeMessage();
         },
-    
+        
+        /**
+         * Logs in the user and updates the user in the localStorage
+         * @param {object} obj object contain the user information
+         */
         logIn: (user) => {
             viewModel.logIn(user);
         },
-    
+        
+        /**
+         * Logs out the user, clears the user data from localStorage, and updates the session state.
+         */
         logOut: () => {
             viewModel.logOut();
         }
     };
     
     let view = {
+        /**
+         * Initializes event listeners for form submission and logout button.
+         */
         init: () => {
             $('#form').on('submit', e => {
                 e.preventDefault();
@@ -104,12 +149,18 @@ $(() => {
             }) 
         },
     
+        /**
+         * Removes any message element from the DOM.
+         */
         removeMessage: () => {
             $('.message').remove();
         },
     };
     
     let userFoundView = {
+        /**
+         * Creates and displays a success message element.
+         */
         submittedMessage: () => {
             const message = $('<div></div>').attr('class', 'message message--correct');
             const icon = $('<i></i>').attr('class', 'fa-solid fa-circle-check');
@@ -121,6 +172,9 @@ $(() => {
     };
     
     let userNotFound = {
+        /**
+         * Creates and displays an error message element.
+         */
         failedMessage: () => {
             const message = $('<div></div>').attr('class', 'message message--error');
             const icon = $('<i></i>').attr('class', 'fa-solid fa-circle-exclamation');

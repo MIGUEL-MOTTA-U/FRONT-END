@@ -2,12 +2,23 @@ import User from "./user.js";
 
 $(() => {
     let model = {
+        /**
+         * Adds a new user to the localStorage users array
+         * @param {object} user the user object to be added
+         */
         addUser: user => {
             let data = JSON.parse(localStorage.users);
             data.push(user);            
             localStorage.users = JSON.stringify(data);
         },
 
+        /**
+         * Creates a new User object.
+         * @param {string} name - The user's name.
+         * @param {string} email - The user's email.
+         * @param {string} password - The user's password.
+         * @return {object} The created User object.
+         */
         createUser: (name, email, password) =>  new User(name, email, password),
 
         expressions: {
@@ -30,10 +41,18 @@ $(() => {
             password2: false
         },
 
+        /**
+         * Checks if all form fields are correctly filled.
+         * @return {boolean} True if all fields are valid, otherwise false.
+         */
         correctFields() {
             return Object.values(this.fields).every(value => value === true);
         },
     
+        /**
+         * Validates a specific form field based on the input value.
+         * @param {Event} e - The event object from the input field.
+         */
         validate(e) {
             switch (e.target.name) {
                 case 'name':
@@ -54,6 +73,13 @@ $(() => {
             }
         },
     
+        /**
+         * Validates an individual field against the provided regular expression.
+         * @param {HTMLElement} input - The input element to validate.
+         * @param {string} value - The value of the input field.
+         * @param {RegExp} expression - The regular expression to test the input value.
+         * @param {string} message - The error message to display if validation fails.
+         */
         validateField(input, value, expression, message) {
             if (value === '') {
                 controller.removeCorrect(input);
@@ -73,6 +99,9 @@ $(() => {
             }
         },
     
+        /**
+         * Checks if the password confirmation matches the original password.
+         */
         checkSamePassword() {
             const passwords = controller.getPasswords();
             const password = passwords.password.val();
@@ -98,48 +127,100 @@ $(() => {
     };
 
     let controller = {
+        /**
+         * Initializes the view.
+         */
         init: () => {
             view.init();
         },
 
+        /**
+         * Validates a specific form field based on the input value.
+         * @param {Event} e - The event object from the input field.
+         */
         validateField: e => {
             model.validate(e);
         },
 
+        /**
+         * Displays the correct input styling.
+         * @param {HTMLElement} input - The input element to style.
+         */
         showCorrect: input => {
             correctInfoView.showCorrect(input);
         },
 
+        /**
+         * Displays an error message for an invalid input field.
+         * @param {HTMLElement} input - The input element to style.
+         * @param {string} msg - The error message to display.
+         */
         showError: (input, msg) => {
             wrongInfoView.showError(input, msg);
         },
 
+        /**
+         * Removes correct input styling.
+         * @param {HTMLElement} input - The input element to remove styling from.
+         */
         removeCorrect: input => {
             correctInfoView.removeCorrect(input);
         },
 
+        /**
+         * Removes error message and styling.
+         * @param {HTMLElement} input - The input element to remove styling from.
+         */
         removeError: input => {
             wrongInfoView.removeError(input);
         },
 
+        /**
+         * Displays a success message after form submission.
+         */
         submittedMessage: () => {
             correctInfoView.submittedMessage();
         },
 
+        /**
+         * Displays an error message if form submission fails.
+         */
         failedMessage: () => {
             wrongInfoView.failedMessage();
         },
 
+        /**
+         * Removes any displayed message.
+         */
         removeMessage: () => {
             view.removeMessage();
         },
 
+        /**
+         * Checks if all form fields are correctly filled.
+         * @return {boolean} True if all fields are valid, otherwise false.
+         */
         correctFields: () => model.correctFields(),
 
+        /**
+         * Retrieves the password fields from the form.
+         * @return {Object} An object containing the password and password confirmation fields.
+         */
         getPasswords: () => view.getPasswords(),
 
+        /**
+         * Creates a new User object.
+         * @param {string} name - The user's name.
+         * @param {string} email - The user's email.
+         * @param {string} password - The user's password.
+         * @return {object} The created User object.
+         */
         createUser: (name, email, password) => model.createUser(name, email, password),
 
+        /**
+         * Adds a new user to the localStorage users array
+         * @param {object} user the user object to be added
+         */
         addUser: user => {
             model.addUser({
                 name: user.name,
@@ -150,6 +231,9 @@ $(() => {
     };
 
     let view = {
+        /**
+         * Initializes event listeners for form inputs and submission.
+         */
         init: () => {
             const inputs = $('.form__input');
             const form = $('#form');
@@ -185,10 +269,16 @@ $(() => {
             });
         },
 
+        /**
+         * Removes any displayed message element from the DOM.
+         */
         removeMessage: () => {
             $('.message').remove();
         },
     
+        /**
+         * Resets all form inputs and their styles.
+         */
         resetAll: () => {
             const form = $('#form');
             const inputs = $('.form__input');
@@ -200,6 +290,10 @@ $(() => {
             });
         },
 
+        /**
+         * Retrieves the password fields from the form.
+         * @return {Object} An object containing the password and password confirmation fields.
+         */
         getPasswords: () => {
             return {
                 password: $('#password'),
@@ -209,14 +303,25 @@ $(() => {
     };
 
     let correctInfoView = {
+        /**
+         * Displays correct styling for a valid input.
+         * @param {HTMLElement} input - The input element to style.
+         */
         showCorrect: input => {
             $(input).addClass('form__input--correct');
         },
     
+        /**
+         * Removes correct input styling.
+         * @param {HTMLElement} input - The input element to remove styling from.
+         */
         removeCorrect: input => {
             $(input).removeClass('form__input--correct');
         },
 
+        /**
+         * Displays a success message after form submission.
+         */
         submittedMessage: () => {
             const message = $('<div></div>').attr('class', 'message message--correct');
             const icon = $('<i></i>').attr('class', 'fa-solid fa-circle-check');
@@ -228,6 +333,11 @@ $(() => {
     };
 
     let wrongInfoView = {
+        /**
+         * Displays an error message for an invalid input field.
+         * @param {HTMLElement} input - The input element to style.
+         * @param {string} msg - The error message to display.
+         */
         showError: (input, message) => {
             const element = $(input);
             const parent = element.parent();
@@ -240,6 +350,10 @@ $(() => {
             element.addClass('form__input--error');
         },
         
+        /**
+         * Removes error message and styling.
+         * @param {HTMLElement} input - The input element to remove styling from.
+         */
         removeError: input => {
             const element = $(input);
     
@@ -251,6 +365,9 @@ $(() => {
             }
         },
        
+        /**
+         * Displays an error message if form submission fails.
+         */
         failedMessage: () => {
             const message = $('<div></div>').attr('class', 'message message--error');
             const icon = $('<i></i>').attr('class', 'fa-solid fa-circle-exclamation');

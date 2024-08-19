@@ -1,5 +1,8 @@
 $(() => {
     let model = {
+        /**
+         * Initializes the localStorage with default values if they do not exist.
+         */
         init: () => {
             if (!localStorage.user) {
                 localStorage.user = JSON.stringify({});
@@ -16,6 +19,9 @@ $(() => {
     }
 
     let controller = {
+        /**
+         * Initializes the model
+         */
         init: () => {
             model.init();
         }
